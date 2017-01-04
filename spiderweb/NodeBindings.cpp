@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 #include "NodeBindings.h"
-#include "NodeChild.h"
+// #include "NodeChild.h"
 
 #include <string>
 #include <vector>
