@@ -688,6 +688,15 @@ BrowserGlue.prototype = {
 
     SelfSupportBackend.init();
 
+    if (!this.nodeLoaded) {
+      let uri = NetUtil.newURI("resource:///chrome/browser/content/browser/node.js");
+      let fullPath = uri.QueryInterface(Ci.nsIFileURL).file.path;
+      let nodeLoader = Cc["@mozilla.org/spiderweb/nodeloader;1"]
+                         .getService(Ci.nsINodeLoader);
+      nodeLoader.start(fullPath, (msg) => {});
+      this.nodeLoaded = true;
+    }
+
     // Ensure we keep track of places/pw-mananager undo by init'ing this early.
     Cu.import("resource:///modules/AutoMigrate.jsm");
 
