@@ -25,7 +25,8 @@ class NodeBindingsLinux : public NodeBindings {
   // Epoll to poll for uv's backend fd.
   int epoll_;
 
-  DISALLOW_COPY_AND_ASSIGN(NodeBindingsLinux);
+  // TODO: fix macro duplications and re-enable
+  // DISALLOW_COPY_AND_ASSIGN(NodeBindingsLinux);
 };
 
 }  // namespace atom

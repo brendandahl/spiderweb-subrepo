@@ -18,10 +18,6 @@ class Environment;
 
 namespace mozilla {
 
-namespace node {
-class NodeChild;
-}
-
 class NodeBindings {
  public:
   // Needed to use message loop's PostTask
@@ -80,8 +76,6 @@ class NodeBindings {
 
   // Main thread's libuv loop.
   uv_loop_t* uv_loop_;
-
-  node::NodeChild* node_child;
 
   v8::Persistent<v8::Function> recvMessageCallback;
 

@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 #include "NodeBindings.h"
-// #include "NodeChild.h"
 
 #include <string>
 #include <vector>
@@ -233,7 +232,8 @@ const char* ToCString(const v8::String::Utf8Value& value) {
 
 void NodeBindings::SendMessage(v8::Handle<v8::String> message) {
   v8::String::Utf8Value utf8String(message);
-  node_child->SendMessage(nsAutoCString(ToCString(utf8String)));
+  // TODO REMOVE THIS FUNC
+  // node_child->SendMessage(nsAutoCString(ToCString(utf8String)));
 }
 
 void NodeBindings::RecvMessage(char* message) {
@@ -284,14 +284,11 @@ void NodeBindings::EmbedThreadRunner(void *arg) {
   }
 }
 
-StaticRefPtr<NodeBindings> s_instance;
+// StaticRefPtr<NodeBindings> s_instance;
 
 // static
 NodeBindings* NodeBindings::Instance() {
-  if (!s_instance) {
-    s_instance = Create();
-  }
-  return s_instance;
+  return nullptr;
 }
 
 }  // namespace mozilla
