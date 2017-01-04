@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/mozilla/spiderweb-spidernode.git
+	branch = existing-js-context
+	commit = 0017eb329e82315d0a247a55a88f9e99e84391f9
+	parent = 9b922c35b76842f0f5b92129bfcc279d7aa4b532
+	cmdver = 0.3.0
