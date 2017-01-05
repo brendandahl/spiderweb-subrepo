@@ -68,18 +68,24 @@ if CONFIG['OS_ARCH'] == 'Darwin':
 # before compiling and linking SpiderNode.
 # TODO: figure out a better way to express this dependency (and SpiderNode's
 # dependency on icudata.o, for that matter).
-USE_LIBS += ['static:js']
+USE_LIBS += [
+    'mozglue',
+    'static:js',
+]
 
 # The SpiderNode libraries that spiderweb uses.  This needs to be kept in sync
 # with the SPIDERNODE_LIBS list in spiderweb/webidl/Makefile.in.
 USE_LIBS += [
-    'static:/spiderweb/app/spidernode/.libs/cares',
-    'static:/spiderweb/app/spidernode/.libs/http_parser',
     'static:/spiderweb/app/spidernode/.libs/node',
     'static:/spiderweb/app/spidernode/.libs/openssl',
     'static:/spiderweb/app/spidernode/.libs/spidershim',
     'static:/spiderweb/app/spidernode/.libs/uv',
     'static:/spiderweb/app/spidernode/.libs/zlib',
+]
+# These must come after the node lib to avoid linking errors on linux.
+USE_LIBS += [
+    'static:/spiderweb/app/spidernode/.libs/cares',
+    'static:/spiderweb/app/spidernode/.libs/http_parser',
 ]
 
 LOCAL_INCLUDES += [
