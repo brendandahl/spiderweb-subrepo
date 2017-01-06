@@ -8,9 +8,9 @@
 #include <vector>
 
 #include "mozilla/dom/ScriptSettings.h" // for AutoJSAPI
-#include "base/message_loop.h"
 #undef arraysize
 #include "env-inl.h"
+#include "base/message_loop.h"
 #include "jsapi.h"
 #include "jsfriendapi.h"
 #include "nsString.h"
