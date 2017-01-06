@@ -57,8 +57,10 @@ void NodeBindings::Initialize(JSContext* aContext, JSObject* aGlobal, int argc, 
   dom::AutoEntryScript aes(aGlobal, "NodeBindings Initialize");
   JS::Rooted<JS::Value> components(aContext);
   JS::Rooted<JSObject*> globalHandle(aContext, aGlobal);
+#ifdef DEBUG
   bool gotProp = JS_GetProperty(aContext, globalHandle, "Components", &components);
   MOZ_ASSERT(gotProp, "Got components object.");
+#endif
   nsCOMPtr<nsIPrincipal> principal = nsContentUtils::GetSystemPrincipal();
 
   v8::V8::Initialize();
